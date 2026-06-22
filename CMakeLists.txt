@@ -4,29 +4,11 @@ project(djs LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(job
-    src/job.cpp
-)
-
-target_include_directories(job
-    PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-
-add_library(job_queue
+add_executable(scheduler
+    src/main.cpp
     src/job_queue.cpp
 )
 
-target_include_directories(job_queue
-    PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-
-add_executable(djs
-    src/main.cpp
-)
-
-target_link_libraries(djs
-    PRIVATE
-        job
+target_include_directories(scheduler PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
 )
