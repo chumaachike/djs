@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: job_scheduler_postgres
+    environment:
+      - POSTGRES_USER=jobrunner
+      - POSTGRES_PASSWORD=local_dev_password
+      - POSTGRES_DB=jobrunner
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./database/migrations/001_create_jobs.sql:/docker-entrypoint-initdb.d/001_create_jobs.sql
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
