@@ -1,2 +1,4 @@
 .env
 hhh.txt
+__pycache__
+.venv
