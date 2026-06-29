@@ -11,6 +11,15 @@ services:
     volumes:
       - ./database/migrations/001_create_jobs.sql:/docker-entrypoint-initdb.d/001_create_jobs.sql
       - postgres_data:/var/lib/postgresql/data
+  api:
+    build: ./app
+    container_name: job_scheduler_api
+    environment:
+      DATABASE_URL: postgresql+psycopg://jobrunner:local_dev_password@postgres:5432/jobrunner
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
 
 volumes:
   postgres_data:
