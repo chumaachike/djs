@@ -1,4 +1,21 @@
+# Local virtual environments
+.venv/
+
+# Environment variables containing sensitive secrets
 .env
+.env.local
+
+# Python cache files
+__pycache__/
+*.pyc
+.cache
+
+# Local IDE settings
+.vscode/
+.idea/
+
+# private notes
 hhh.txt
-__pycache__
-.venv
+
+# 
+build/
